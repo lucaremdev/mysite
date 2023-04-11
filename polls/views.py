@@ -7,8 +7,8 @@ from .models import Choice, Question
 
 
 def index(request):
-    latest_question_list = Question.objects.order_by("-pub_date")[:5]
-    context = {"latest_question_list": latest_question_list}
+    questions_list = Question.objects.all
+    context = {"hop": questions_list, 'voila': 2}
     return render(request, "polls/index.html", context)
 
 
