@@ -1,9 +1,20 @@
-<h1>{{ question.question_text }}</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ question.question_text }}</title>
+  </head>
+  <body>
+    <h1>{{ question.question_text }}</h1>
 
-<ul>
-{% for choice in question.choice_set.all %}
-    <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{% if choice.votes >= 2 %}s{% endif %}</li>
-{% endfor %}
-</ul>
+    <ul>
+      {% for choice in question.choice_set.all %}
+          <li>{{ choice.choice_text }} -- {{ choice.votes }} vote{% if choice.votes >= 2 %}s{% endif %}</li>
+      {% endfor %}
+    </ul>
 
-<a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    <a href="{% url 'polls:detail' question.id %}">Vote again?</a>
+    
+    <!-- Debug Toolbar code goes here -->
+    
+  </body>
+</html>
